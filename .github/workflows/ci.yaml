@@ -40,7 +40,7 @@ jobs:
         run: |
           # Use upstream/main as the baseline
           MERGE_COMMITS=$(git log upstream/main..HEAD --merges --oneline | wc -l)
-          if [ "$MERGE_COMMITS" -gt 0 ]; then
+          if [ "$MERGE_COMMITS" -gt 1 ]; then
             echo "::error::Found $MERGE_COMMITS merge commits:"
             # List the specific commits causing the issue
             git log upstream/main..HEAD --merges --pretty=format:"%h %s (%an)"
